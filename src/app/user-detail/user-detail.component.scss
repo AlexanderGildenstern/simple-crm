@@ -1,0 +1,28 @@
+.user-detail-header {
+    background-color: #c0ae4a;
+    min-height: 250px;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+.user-details{
+    margin-left:32px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    h2{
+        margin-bottom: 0;
+    }
+}
+.pin-right-upper-corner{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
