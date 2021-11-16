@@ -27,6 +27,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { DialogAddedAdressComponent } from './dialog-added-adress/dialog-added-adress.component';
+import { DialogAddedUserComponent } from './dialog-added-user/dialog-added-user.component';
 
 
 
@@ -42,6 +45,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     UserComponent,
     DialogAddUserComponent,
     UserDetailComponent,
+    DialogAddedAdressComponent,
+    DialogAddedUserComponent,
 
   ],
   imports: [
@@ -65,7 +70,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     provideFirestore(() => getFirestore()),
     AngularFirestoreModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
