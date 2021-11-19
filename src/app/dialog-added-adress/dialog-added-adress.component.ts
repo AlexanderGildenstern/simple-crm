@@ -9,7 +9,7 @@ import { User } from 'src/models/user.class';
   styleUrls: ['./dialog-added-adress.component.scss']
 })
 export class DialogAddedAdressComponent implements OnInit {
-user!: User;
+user: User = new User();
 loading = false;
 birthDate!: Date;
 userId!: string;

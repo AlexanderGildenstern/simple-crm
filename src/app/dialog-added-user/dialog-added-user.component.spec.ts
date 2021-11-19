@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
 import { DialogAddedUserComponent } from './dialog-added-user.component';
 
 describe('DialogAddedUserComponent', () => {
@@ -8,9 +11,19 @@ describe('DialogAddedUserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogAddedUserComponent ]
+      imports: [
+        MatDialogModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule
+      ],
+      declarations: [DialogAddedUserComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

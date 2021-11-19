@@ -13,7 +13,7 @@ import { DialogAddedUserComponent } from '../dialog-added-user/dialog-added-user
 })
 export class UserDetailComponent implements OnInit {
 
-  userId: any = '';
+  userId: any = [];
   user: User = new User();
 
   constructor(
@@ -23,14 +23,18 @@ export class UserDetailComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    if(this.userId){
     this.route.paramMap.subscribe(paramMap => {
       this.userId = paramMap.get('id');
       console.log("got id", this.userId);
       this.getUser();
     })
   }
+  }
 
   getUser() {
+    if(this.userId){
+      
     this.firestore
       .collection('users')
       .doc(this.userId)     // hier gtreifen wir auf eine bestimmte id zu in users
@@ -38,8 +42,8 @@ export class UserDetailComponent implements OnInit {
       .subscribe((user: any) => {
         this.user = new User(user);
         console.log('Retrieved user',this.user);
-        
       });
+    }
   }
 
   editMenu(){

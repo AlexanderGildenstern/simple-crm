@@ -1,4 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 import { DialogAddedAdressComponent } from './dialog-added-adress.component';
 
@@ -8,9 +13,20 @@ describe('DialogAddedAdressComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogAddedAdressComponent ]
+      imports: [
+        RouterModule.forRoot([]),
+        MatDialogModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule
+      ],
+      declarations: [DialogAddedAdressComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
